@@ -19,6 +19,7 @@
 		C631500A2C06D29A0047040F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C631500C2C06D29B0047040F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C631500F2C06D29B0047040F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C63150192C0717130047040F /* BuildPattern.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BuildPattern.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +56,7 @@
 				C631500A2C06D29A0047040F /* ContentView.swift */,
 				C631500C2C06D29B0047040F /* Assets.xcassets */,
 				C631500E2C06D29B0047040F /* Preview Content */,
+				C63150192C0717130047040F /* BuildPattern.playground */,
 			);
 			path = learning;
 			sourceTree = "<group>";
@@ -77,6 +79,7 @@
 				C63150012C06D29A0047040F /* Sources */,
 				C63150022C06D29A0047040F /* Frameworks */,
 				C63150032C06D29A0047040F /* Resources */,
+				C63150162C06D7740047040F /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -131,6 +134,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C63150162C06D7740047040F /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C63150012C06D29A0047040F /* Sources */ = {
