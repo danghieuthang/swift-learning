@@ -9,9 +9,9 @@ import SwiftUI
 
 struct Section3: View {
     let hikes = [
-        Hike(Name: "Name 1", Photo: "image1", Miles: 6),
-        Hike(Name: "Name 2", Photo: "image2", Miles: 5.8),
-        Hike(Name: "Name 3", Photo: "image3", Miles: 5)
+        Hike(Name: "Salmonbaerry trail", Photo: "image1", Miles: 6),
+        Hike(Name: "Ngay xua em den", Photo: "image2", Miles: 5.8),
+        Hike(Name: "Toi bo me em roi", Photo: "image3", Miles: 5)
     ]
     var body: some View {
         NavigationStack {
@@ -22,7 +22,7 @@ struct Section3: View {
             }
             .navigationTitle("List")
             .navigationDestination(for: Hike.self) { hike in
-                Text(hike.Name)
+                HikeDetailScreen(hike: hike)
             }
         }
     }
