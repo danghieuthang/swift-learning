@@ -6,13 +6,13 @@ protocol Animal {
 
 class Dog:Animal{
     func Eat() {
-        print("Banana")
+        print("Banana \(Date())")
     }
 }
 
 class Cat:Animal{
     func Eat() {
-        print("Fish")
+        print("Fish \(Date())")
     }
 }
 
@@ -32,5 +32,3 @@ dogBuilder.build()
 
 let catBuilder = Builder(animal: Cat())
 catBuilder.build()
-
-

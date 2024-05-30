@@ -7,23 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C63150092C06D29A0047040F /* learningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63150082C06D29A0047040F /* learningApp.swift */; };
-		C631500B2C06D29A0047040F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631500A2C06D29A0047040F /* ContentView.swift */; };
-		C631500D2C06D29B0047040F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C631500C2C06D29B0047040F /* Assets.xcassets */; };
-		C63150102C06D29B0047040F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C631500F2C06D29B0047040F /* Preview Assets.xcassets */; };
+		C6215EAC2C0884CA00364661 /* Section3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215EAB2C0884CA00364661 /* Section3.swift */; };
+		C6215EAF2C0885AB00364661 /* Hike.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215EAE2C0885AB00364661 /* Hike.swift */; };
+		C6832E682C087E9100123280 /* TutorialsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6832E672C087E9100123280 /* TutorialsApp.swift */; };
+		C6832E6C2C087E9200123280 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6832E6B2C087E9200123280 /* Assets.xcassets */; };
+		C6832E6F2C087E9200123280 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6832E6E2C087E9200123280 /* Preview Assets.xcassets */; };
+		C6832E7E2C08812200123280 /* Section2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6832E7D2C08812200123280 /* Section2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C63150052C06D29A0047040F /* learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C63150082C06D29A0047040F /* learningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = learningApp.swift; sourceTree = "<group>"; };
-		C631500A2C06D29A0047040F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		C631500C2C06D29B0047040F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C631500F2C06D29B0047040F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C63150192C0717130047040F /* BuildPattern.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BuildPattern.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C6215EAB2C0884CA00364661 /* Section3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section3.swift; sourceTree = "<group>"; };
+		C6215EAE2C0885AB00364661 /* Hike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hike.swift; sourceTree = "<group>"; };
+		C6832E642C087E9100123280 /* Tutorials.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tutorials.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6832E672C087E9100123280 /* TutorialsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialsApp.swift; sourceTree = "<group>"; };
+		C6832E6B2C087E9200123280 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C6832E6E2C087E9200123280 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C6832E7D2C08812200123280 /* Section2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C63150022C06D29A0047040F /* Frameworks */ = {
+		C6832E612C087E9100123280 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,38 +36,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C6314FFC2C06D29A0047040F = {
+		C6215EAD2C0885A200364661 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C63150072C06D29A0047040F /* learning */,
-				C63150062C06D29A0047040F /* Products */,
+				C6215EAE2C0885AB00364661 /* Hike.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C6832E5B2C087E9100123280 = {
+			isa = PBXGroup;
+			children = (
+				C6832E662C087E9100123280 /* Tutorials */,
+				C6832E652C087E9100123280 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		C63150062C06D29A0047040F /* Products */ = {
+		C6832E652C087E9100123280 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C63150052C06D29A0047040F /* learning.app */,
+				C6832E642C087E9100123280 /* Tutorials.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C63150072C06D29A0047040F /* learning */ = {
+		C6832E662C087E9100123280 /* Tutorials */ = {
 			isa = PBXGroup;
 			children = (
-				C63150082C06D29A0047040F /* learningApp.swift */,
-				C631500A2C06D29A0047040F /* ContentView.swift */,
-				C631500C2C06D29B0047040F /* Assets.xcassets */,
-				C631500E2C06D29B0047040F /* Preview Content */,
-				C63150192C0717130047040F /* BuildPattern.playground */,
+				C6215EAD2C0885A200364661 /* Models */,
+				C6832E672C087E9100123280 /* TutorialsApp.swift */,
+				C6832E6B2C087E9200123280 /* Assets.xcassets */,
+				C6832E6D2C087E9200123280 /* Preview Content */,
+				C6832E7D2C08812200123280 /* Section2.swift */,
+				C6215EAB2C0884CA00364661 /* Section3.swift */,
 			);
-			path = learning;
+			path = Tutorials;
 			sourceTree = "<group>";
 		};
-		C631500E2C06D29B0047040F /* Preview Content */ = {
+		C6832E6D2C087E9200123280 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				C631500F2C06D29B0047040F /* Preview Assets.xcassets */,
+				C6832E6E2C087E9200123280 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -72,40 +84,39 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C63150042C06D29A0047040F /* learning */ = {
+		C6832E632C087E9100123280 /* Tutorials */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C63150132C06D29B0047040F /* Build configuration list for PBXNativeTarget "learning" */;
+			buildConfigurationList = C6832E722C087E9200123280 /* Build configuration list for PBXNativeTarget "Tutorials" */;
 			buildPhases = (
-				C63150012C06D29A0047040F /* Sources */,
-				C63150022C06D29A0047040F /* Frameworks */,
-				C63150032C06D29A0047040F /* Resources */,
-				C63150162C06D7740047040F /* Run Script */,
+				C6832E602C087E9100123280 /* Sources */,
+				C6832E612C087E9100123280 /* Frameworks */,
+				C6832E622C087E9100123280 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = learning;
-			productName = learning;
-			productReference = C63150052C06D29A0047040F /* learning.app */;
+			name = Tutorials;
+			productName = Tutorials;
+			productReference = C6832E642C087E9100123280 /* Tutorials.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C6314FFD2C06D29A0047040F /* Project object */ = {
+		C6832E5C2C087E9100123280 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
-					C63150042C06D29A0047040F = {
+					C6832E632C087E9100123280 = {
 						CreatedOnToolsVersion = 15.4;
 					};
 				};
 			};
-			buildConfigurationList = C63150002C06D29A0047040F /* Build configuration list for PBXProject "learning" */;
+			buildConfigurationList = C6832E5F2C087E9100123280 /* Build configuration list for PBXProject "Tutorials" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -113,63 +124,44 @@
 				en,
 				Base,
 			);
-			mainGroup = C6314FFC2C06D29A0047040F;
-			productRefGroup = C63150062C06D29A0047040F /* Products */;
+			mainGroup = C6832E5B2C087E9100123280;
+			productRefGroup = C6832E652C087E9100123280 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C63150042C06D29A0047040F /* learning */,
+				C6832E632C087E9100123280 /* Tutorials */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C63150032C06D29A0047040F /* Resources */ = {
+		C6832E622C087E9100123280 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C63150102C06D29B0047040F /* Preview Assets.xcassets in Resources */,
-				C631500D2C06D29B0047040F /* Assets.xcassets in Resources */,
+				C6832E6F2C087E9200123280 /* Preview Assets.xcassets in Resources */,
+				C6832E6C2C087E9200123280 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		C63150162C06D7740047040F /* Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		C63150012C06D29A0047040F /* Sources */ = {
+		C6832E602C087E9100123280 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C631500B2C06D29A0047040F /* ContentView.swift in Sources */,
-				C63150092C06D29A0047040F /* learningApp.swift in Sources */,
+				C6832E7E2C08812200123280 /* Section2.swift in Sources */,
+				C6215EAC2C0884CA00364661 /* Section3.swift in Sources */,
+				C6215EAF2C0885AB00364661 /* Hike.swift in Sources */,
+				C6832E682C087E9100123280 /* TutorialsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		C63150112C06D29B0047040F /* Debug */ = {
+		C6832E702C087E9200123280 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -232,7 +224,7 @@
 			};
 			name = Debug;
 		};
-		C63150122C06D29B0047040F /* Release */ = {
+		C6832E712C087E9200123280 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -288,14 +280,14 @@
 			};
 			name = Release;
 		};
-		C63150142C06D29B0047040F /* Debug */ = {
+		C6832E732C087E9200123280 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"learning/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Tutorials/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -308,7 +300,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.learning;
+				PRODUCT_BUNDLE_IDENTIFIER = thang.Tutorials;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -316,14 +308,14 @@
 			};
 			name = Debug;
 		};
-		C63150152C06D29B0047040F /* Release */ = {
+		C6832E742C087E9200123280 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"learning/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Tutorials/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -336,7 +328,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.learning;
+				PRODUCT_BUNDLE_IDENTIFIER = thang.Tutorials;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -347,25 +339,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C63150002C06D29A0047040F /* Build configuration list for PBXProject "learning" */ = {
+		C6832E5F2C087E9100123280 /* Build configuration list for PBXProject "Tutorials" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C63150112C06D29B0047040F /* Debug */,
-				C63150122C06D29B0047040F /* Release */,
+				C6832E702C087E9200123280 /* Debug */,
+				C6832E712C087E9200123280 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C63150132C06D29B0047040F /* Build configuration list for PBXNativeTarget "learning" */ = {
+		C6832E722C087E9200123280 /* Build configuration list for PBXNativeTarget "Tutorials" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C63150142C06D29B0047040F /* Debug */,
-				C63150152C06D29B0047040F /* Release */,
+				C6832E732C087E9200123280 /* Debug */,
+				C6832E742C087E9200123280 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = C6314FFD2C06D29A0047040F /* Project object */;
+	rootObject = C6832E5C2C087E9100123280 /* Project object */;
 }
