@@ -7,22 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C6F3D6B72C0CA9D1000FD4C9 /* MVPattern_WeatherAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F3D6B62C0CA9D1000FD4C9 /* MVPattern_WeatherAppApp.swift */; };
-		C6F3D6B92C0CA9D1000FD4C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F3D6B82C0CA9D1000FD4C9 /* ContentView.swift */; };
-		C6F3D6BB2C0CA9D3000FD4C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6F3D6BA2C0CA9D3000FD4C9 /* Assets.xcassets */; };
-		C6F3D6BE2C0CA9D3000FD4C9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6F3D6BD2C0CA9D3000FD4C9 /* Preview Assets.xcassets */; };
+		C69A3B592C0F020C00833E97 /* MVVMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69A3B582C0F020C00833E97 /* MVVMApp.swift */; };
+		C69A3B5B2C0F020C00833E97 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69A3B5A2C0F020C00833E97 /* ContentView.swift */; };
+		C69A3B5D2C0F020D00833E97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C69A3B5C2C0F020D00833E97 /* Assets.xcassets */; };
+		C69A3B602C0F020D00833E97 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C69A3B5F2C0F020D00833E97 /* Preview Assets.xcassets */; };
+		C69A3B692C0F10B000833E97 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69A3B682C0F10B000833E97 /* WebService.swift */; };
+		C69A3B6C2C0F10D000833E97 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69A3B6B2C0F10D000833E97 /* Product.swift */; };
+		C69A3B6F2C0F122600833E97 /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69A3B6E2C0F122600833E97 /* ProductListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C6F3D6B32C0CA9D1000FD4C9 /* MVPattern-WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MVPattern-WeatherApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C6F3D6B62C0CA9D1000FD4C9 /* MVPattern_WeatherAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPattern_WeatherAppApp.swift; sourceTree = "<group>"; };
-		C6F3D6B82C0CA9D1000FD4C9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		C6F3D6BA2C0CA9D3000FD4C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C6F3D6BD2C0CA9D3000FD4C9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C69A3B552C0F020C00833E97 /* MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C69A3B582C0F020C00833E97 /* MVVMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMApp.swift; sourceTree = "<group>"; };
+		C69A3B5A2C0F020C00833E97 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C69A3B5C2C0F020D00833E97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C69A3B5F2C0F020D00833E97 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C69A3B662C0F02E100833E97 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C69A3B682C0F10B000833E97 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		C69A3B6B2C0F10D000833E97 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		C69A3B6E2C0F122600833E97 /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C6F3D6B02C0CA9D1000FD4C9 /* Frameworks */ = {
+		C69A3B522C0F020C00833E97 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -32,85 +39,105 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C6F3D6AA2C0CA9D1000FD4C9 = {
+		C69A3B4C2C0F020C00833E97 = {
 			isa = PBXGroup;
 			children = (
-				C6F3D6B52C0CA9D1000FD4C9 /* MVPattern-WeatherApp */,
-				C6F3D6B42C0CA9D1000FD4C9 /* Products */,
+				C69A3B572C0F020C00833E97 /* MVVM */,
+				C69A3B562C0F020C00833E97 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		C6F3D6B42C0CA9D1000FD4C9 /* Products */ = {
+		C69A3B562C0F020C00833E97 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C6F3D6B32C0CA9D1000FD4C9 /* MVPattern-WeatherApp.app */,
+				C69A3B552C0F020C00833E97 /* MVVM.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C6F3D6B52C0CA9D1000FD4C9 /* MVPattern-WeatherApp */ = {
+		C69A3B572C0F020C00833E97 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
-				C6F3D6C42C0CA9F5000FD4C9 /* Models */,
-				C6F3D6B62C0CA9D1000FD4C9 /* MVPattern_WeatherAppApp.swift */,
-				C6F3D6B82C0CA9D1000FD4C9 /* ContentView.swift */,
-				C6F3D6BA2C0CA9D3000FD4C9 /* Assets.xcassets */,
-				C6F3D6BC2C0CA9D3000FD4C9 /* Preview Content */,
+				C69A3B6D2C0F121500833E97 /* ViewModels */,
+				C69A3B6A2C0F10C800833E97 /* Models */,
+				C69A3B672C0F10A100833E97 /* Services */,
+				C69A3B582C0F020C00833E97 /* MVVMApp.swift */,
+				C69A3B5A2C0F020C00833E97 /* ContentView.swift */,
+				C69A3B5C2C0F020D00833E97 /* Assets.xcassets */,
+				C69A3B5E2C0F020D00833E97 /* Preview Content */,
+				C69A3B662C0F02E100833E97 /* README.md */,
 			);
-			path = "MVPattern-WeatherApp";
+			path = MVVM;
 			sourceTree = "<group>";
 		};
-		C6F3D6BC2C0CA9D3000FD4C9 /* Preview Content */ = {
+		C69A3B5E2C0F020D00833E97 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				C6F3D6BD2C0CA9D3000FD4C9 /* Preview Assets.xcassets */,
+				C69A3B5F2C0F020D00833E97 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		C6F3D6C42C0CA9F5000FD4C9 /* Models */ = {
+		C69A3B672C0F10A100833E97 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				C69A3B682C0F10B000833E97 /* WebService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C69A3B6A2C0F10C800833E97 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C69A3B6B2C0F10D000833E97 /* Product.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		C69A3B6D2C0F121500833E97 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C69A3B6E2C0F122600833E97 /* ProductListViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C6F3D6B22C0CA9D1000FD4C9 /* MVPattern-WeatherApp */ = {
+		C69A3B542C0F020C00833E97 /* MVVM */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C6F3D6C12C0CA9D3000FD4C9 /* Build configuration list for PBXNativeTarget "MVPattern-WeatherApp" */;
+			buildConfigurationList = C69A3B632C0F020D00833E97 /* Build configuration list for PBXNativeTarget "MVVM" */;
 			buildPhases = (
-				C6F3D6AF2C0CA9D1000FD4C9 /* Sources */,
-				C6F3D6B02C0CA9D1000FD4C9 /* Frameworks */,
-				C6F3D6B12C0CA9D1000FD4C9 /* Resources */,
+				C69A3B512C0F020C00833E97 /* Sources */,
+				C69A3B522C0F020C00833E97 /* Frameworks */,
+				C69A3B532C0F020C00833E97 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "MVPattern-WeatherApp";
-			productName = "MVPattern-WeatherApp";
-			productReference = C6F3D6B32C0CA9D1000FD4C9 /* MVPattern-WeatherApp.app */;
+			name = MVVM;
+			productName = MVVM;
+			productReference = C69A3B552C0F020C00833E97 /* MVVM.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C6F3D6AB2C0CA9D1000FD4C9 /* Project object */ = {
+		C69A3B4D2C0F020C00833E97 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
-					C6F3D6B22C0CA9D1000FD4C9 = {
+					C69A3B542C0F020C00833E97 = {
 						CreatedOnToolsVersion = 15.4;
 					};
 				};
 			};
-			buildConfigurationList = C6F3D6AE2C0CA9D1000FD4C9 /* Build configuration list for PBXProject "MVPattern-WeatherApp" */;
+			buildConfigurationList = C69A3B502C0F020C00833E97 /* Build configuration list for PBXProject "MVVM" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -118,42 +145,45 @@
 				en,
 				Base,
 			);
-			mainGroup = C6F3D6AA2C0CA9D1000FD4C9;
-			productRefGroup = C6F3D6B42C0CA9D1000FD4C9 /* Products */;
+			mainGroup = C69A3B4C2C0F020C00833E97;
+			productRefGroup = C69A3B562C0F020C00833E97 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C6F3D6B22C0CA9D1000FD4C9 /* MVPattern-WeatherApp */,
+				C69A3B542C0F020C00833E97 /* MVVM */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C6F3D6B12C0CA9D1000FD4C9 /* Resources */ = {
+		C69A3B532C0F020C00833E97 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6F3D6BE2C0CA9D3000FD4C9 /* Preview Assets.xcassets in Resources */,
-				C6F3D6BB2C0CA9D3000FD4C9 /* Assets.xcassets in Resources */,
+				C69A3B602C0F020D00833E97 /* Preview Assets.xcassets in Resources */,
+				C69A3B5D2C0F020D00833E97 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C6F3D6AF2C0CA9D1000FD4C9 /* Sources */ = {
+		C69A3B512C0F020C00833E97 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6F3D6B92C0CA9D1000FD4C9 /* ContentView.swift in Sources */,
-				C6F3D6B72C0CA9D1000FD4C9 /* MVPattern_WeatherAppApp.swift in Sources */,
+				C69A3B692C0F10B000833E97 /* WebService.swift in Sources */,
+				C69A3B6F2C0F122600833E97 /* ProductListViewModel.swift in Sources */,
+				C69A3B6C2C0F10D000833E97 /* Product.swift in Sources */,
+				C69A3B5B2C0F020C00833E97 /* ContentView.swift in Sources */,
+				C69A3B592C0F020C00833E97 /* MVVMApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		C6F3D6BF2C0CA9D3000FD4C9 /* Debug */ = {
+		C69A3B612C0F020D00833E97 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -216,7 +246,7 @@
 			};
 			name = Debug;
 		};
-		C6F3D6C02C0CA9D3000FD4C9 /* Release */ = {
+		C69A3B622C0F020D00833E97 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -272,14 +302,14 @@
 			};
 			name = Release;
 		};
-		C6F3D6C22C0CA9D3000FD4C9 /* Debug */ = {
+		C69A3B642C0F020D00833E97 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MVPattern-WeatherApp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MVVM/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -292,7 +322,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "thang.MVPattern-WeatherApp";
+				PRODUCT_BUNDLE_IDENTIFIER = thang.MVVM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -300,14 +330,14 @@
 			};
 			name = Debug;
 		};
-		C6F3D6C32C0CA9D3000FD4C9 /* Release */ = {
+		C69A3B652C0F020D00833E97 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MVPattern-WeatherApp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MVVM/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -320,7 +350,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "thang.MVPattern-WeatherApp";
+				PRODUCT_BUNDLE_IDENTIFIER = thang.MVVM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -331,25 +361,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C6F3D6AE2C0CA9D1000FD4C9 /* Build configuration list for PBXProject "MVPattern-WeatherApp" */ = {
+		C69A3B502C0F020C00833E97 /* Build configuration list for PBXProject "MVVM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C6F3D6BF2C0CA9D3000FD4C9 /* Debug */,
-				C6F3D6C02C0CA9D3000FD4C9 /* Release */,
+				C69A3B612C0F020D00833E97 /* Debug */,
+				C69A3B622C0F020D00833E97 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C6F3D6C12C0CA9D3000FD4C9 /* Build configuration list for PBXNativeTarget "MVPattern-WeatherApp" */ = {
+		C69A3B632C0F020D00833E97 /* Build configuration list for PBXNativeTarget "MVVM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C6F3D6C22C0CA9D3000FD4C9 /* Debug */,
-				C6F3D6C32C0CA9D3000FD4C9 /* Release */,
+				C69A3B642C0F020D00833E97 /* Debug */,
+				C69A3B652C0F020D00833E97 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = C6F3D6AB2C0CA9D1000FD4C9 /* Project object */;
+	rootObject = C69A3B4D2C0F020C00833E97 /* Project object */;
 }
