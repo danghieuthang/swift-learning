@@ -1,4 +1,4 @@
-
+Swift Tutorials
 # List And Navigation
 # State And Binding
 1. State: The @State property wrapper is used to create a mutable state for a value type. SwiftUI manages the storage of any property you declare as a state. When the state value changes, the view invalidates its appearance and recomputes the body.
@@ -57,6 +57,57 @@ struct ContentView: View {
 | `@Binding` | When a value is owned by a parent view but a child view needs to mutate it. | A text field's text property in a reusable text field component. |
 | `@ObservedObject` | When your view needs to mutate properties of an external object, and you want your view to update when those properties change. | A User object that is used across several views. |
 | `@EnvironmentObject` | When multiple views need to share and mutate the same data. | Settings that affect many views in your app, or a shared data model. |
-# Weather app
-# MVVM
 
+# Weather app
+
+# MVVM Pattern
+#  MVVM(Model-View-View Model)
+
+## Defination
+- Model: Business object or domain object
+- View: Represents the UI for the application
+- View Model: Takes the data from the model and provides it to the view
+
+## MVVM in WPF vs SwiftUI
+
+- In SwiftUI, View is the ViewModel
+
+
+## Limitations of the MVVM in SwiftUI
+
+1. **Complexity**: MVVM can add unnecessary complexity if your app's requirements are simple. For small apps with only a few screens, using MVVM might be overkill.
+2. **Tight Coupling**: In MVVM, the ViewModel is often tightly coupled with the View. This can make it difficult to reuse ViewModels across different views.
+3. **State Management**: Managing state can become complex in large applications. SwiftUI's @State and @Binding are great for simple state, but for complex state, you might need to use @ObservedObject or @EnvironmentObject, which can add complexity.
+4. **Testing**: While MVVM improves testability compared to MVC, testing the interaction between the View and the ViewModel can still be challenging.
+
+
+
+# MV Pattern
+![MV Pattern](assets/mv-pattern.jpeg)
+- MV Pattern: Where M stands for Model and V is for View
+- MV Pattern Mechanics: The MV pattern involves a user action mutating the state, causing the view to re-render, simplifying the data flow in SwiftUI applications.
+- Aggregate Root Concept: An observable object, called the aggregate root, serves as a gateway to model objects, centralizing logic and simplifying access to data.
+```swift
+
+// Ensure that code marked with it runs on the main thread
+@MainActor
+class StoreModel: ObservableObject {
+    @Published var products: [Product] = []
+    let webService: WebService
+    init(webService: WebService) {
+        self.webService = webService
+    }
+
+    func populateProducts() async throws {
+        products = try await webService.getProducts()
+    }
+
+    func addProduct(){ 
+        // TODO
+    }
+    ...
+}
+
+```
+
+More about [MV Pattern](https://azamsharp.com/2022/08/09/intro-to-mv-state-pattern.html)
