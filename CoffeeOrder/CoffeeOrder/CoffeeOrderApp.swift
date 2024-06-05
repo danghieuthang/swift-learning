@@ -11,7 +11,8 @@ import SwiftUI
 struct CoffeeOrderApp: App {
     @StateObject private var model: CoffeeModel
     init() {
-        let webService = WebService()
+        var config = Configuration()
+        let webService = WebService(baseUrl:  config.environment.baseUrl)
         _model = StateObject(wrappedValue: CoffeeModel(webService: webService))
     }
 
