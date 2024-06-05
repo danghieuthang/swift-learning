@@ -61,7 +61,7 @@ struct ContentView: View {
 # Weather app
 
 # MVVM Pattern
-#  MVVM(Model-View-View Model)
+# MVVM(Model-View-View Model)
 
 ## Defination
 - Model: Business object or domain object
@@ -111,3 +111,12 @@ class StoreModel: ObservableObject {
 ```
 
 More about [MV Pattern](https://azamsharp.com/2022/08/09/intro-to-mv-state-pattern.html)
+
+# Stop using MVVM with SwiftUI
+- SwiftUI already has features like state and binding that eliminates the need for a separate view model layer.
+- Using MVVM with SwiftUI requires passing around view models and global state which can be cumbersome and error-prone.
+- SwiftUI encourages a unidirectional data flow which can be achieved without MVVM using environment objects.
+- Core Data fetching can be done directly from the view without needing a view model.
+- Unit testing becomes more complex with MVVM as the view model often doesn't contain any business logic.
+
+[Read more](https://www.youtube.com/watch?v=LVx93PfGjdo)
