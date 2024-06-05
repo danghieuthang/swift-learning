@@ -1,4 +1,4 @@
-Swift Tutorials
+This repository contains a collection of tutorials and notes from Mohammad Azam's course on Udemy that I have learned from and documented.
 # List And Navigation
 # State And Binding
 1. State: The @State property wrapper is used to create a mutable state for a value type. SwiftUI manages the storage of any property you declare as a state. When the state value changes, the view invalidates its appearance and recomputes the body.
@@ -120,3 +120,150 @@ More about [MV Pattern](https://azamsharp.com/2022/08/09/intro-to-mv-state-patte
 - Unit testing becomes more complex with MVVM as the view model often doesn't contain any business logic.
 
 [Read more](https://www.youtube.com/watch?v=LVx93PfGjdo)
+
+# MV Pattern - Validation
+
+## Simple
+```swift
+```
+## Form Validation with Error Messages and Error Forms
+- Extensions:
+```swift
+extension String {
+    var isValidEmail: Bool {
+        let emailRegex = "^[a-zA-Z0-9._%±]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return predicate.evaluate(with: self)
+    }
+}
+
+```
+- Form Error
+
+```swift
+struct LoginFormError {
+    var email: String = ""
+    var password: String = ""
+}
+```
+- View
+```swift
+ struct LoginView: View {
+    @State private var email: String = ""
+    @State private var password: String = ""
+    @State private var loginFormError = LoginFormError()
+
+    private func clearForm() {
+        loginFormError = LoginFormError()
+    }
+
+    var isFormValid: Bool {
+        clearForm()
+        if email.isEmpty {
+            loginFormError.email = "Email is required"
+        } else if !email.isValidEmail {
+            loginFormError.email = "Email is not in correct format"
+        }
+        if password.isEmpty {
+            loginFormError.password = "Password is required"
+        }
+        return loginFormError.email.isEmpty && loginFormError.password.isEmpty
+    }
+
+    var body: some View {
+        Form {
+            TextField("Email", text: $email)
+                .textInputAutocapitalization(.never)
+            if !loginFormError.email.isEmpty {
+                Text(loginFormError.email)
+                    .font(.caption)
+            }
+
+            SecureField("Password", text: $password)
+            if !loginFormError.password.isEmpty {
+                Text(loginFormError.password)
+                    .font(.caption)
+            }
+            Button("Login") {
+                if isFormValid {}
+            }
+        }
+    }
+ }
+
+```
+## Form Validation with View Model
+- Login Error
+```swift
+enum LoginError: Error, LocalizedError {
+    case emailEmpty
+    case emailInvalid
+    case passwordEmpty
+    var errorDescription: String? {
+        switch self {
+        case .emailEmpty:
+            return "Email cannot be empty"
+        case .emailInvalid:
+            return "Email is not in correct format"
+        case .passwordEmpty:
+            return "Password cannot be empty"
+        }
+    }
+}
+```
+- State
+```swift
+struct LoginState {
+    var email: String = ""
+    var password: String = ""
+    var emailError: LoginError?
+    var passwordError: LoginError?
+    mutating func clearErrors() {
+        emailError = nil
+        passwordError = nil
+    }
+
+    mutating func isValid() -> Bool {
+        clearErrors()
+        if email.isEmpty {
+            emailError = LoginError.emailEmpty
+        } else if !email.isValidEmail {
+            emailError = LoginError.emailInvalid
+        }
+        if password.isEmpty {
+            passwordError = LoginError.passwordEmpty
+        }
+        return emailError == nil && passwordError == nil
+    }
+}
+
+```
+- View
+```swift
+struct LoginView: View {
+    @State private var loginState = LoginState()
+
+    var body: some View {
+        Form {
+            TextField("Email", text: $loginState.email)
+                .textInputAutocapitalization(.never)
+            if let emailError = loginState.emailError {
+                Text(emailError.localizedDescription)
+                    .font(.caption)
+            }
+
+            SecureField("Password", text: $loginState.password)
+            if let passwordError = loginState.passwordError {
+                Text(passwordError.localizedDescription)
+                    .font(.caption)
+            }
+            Button("Login") {
+                if loginState.isValid() {}
+            }
+        }
+    }
+}
+
+```
+
+## Form Validation with Summary Messages

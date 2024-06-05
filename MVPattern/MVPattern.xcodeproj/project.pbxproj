@@ -15,6 +15,10 @@
 		C69A3B8E2C0F484D00833E97 /* StoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69A3B8D2C0F484D00833E97 /* StoreModel.swift */; };
 		C69A3B912C0F488B00833E97 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69A3B902C0F488B00833E97 /* WebService.swift */; };
 		C69A3B942C0F4D1E00833E97 /* NumberFormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69A3B932C0F4D1E00833E97 /* NumberFormatterExtensions.swift */; };
+		C69A3B9A2C101CCC00833E97 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69A3B992C101CCC00833E97 /* LoginView.swift */; };
+		C69A3B9C2C101D7900833E97 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69A3B9B2C101D7900833E97 /* StringExtensions.swift */; };
+		C69A3B9F2C10201A00833E97 /* LoginFormError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69A3B9E2C10201A00833E97 /* LoginFormError.swift */; };
+		C69A3BA22C10214600833E97 /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69A3BA12C10214600833E97 /* LoginError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,10 @@
 		C69A3B8D2C0F484D00833E97 /* StoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreModel.swift; sourceTree = "<group>"; };
 		C69A3B902C0F488B00833E97 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		C69A3B932C0F4D1E00833E97 /* NumberFormatterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterExtensions.swift; sourceTree = "<group>"; };
+		C69A3B992C101CCC00833E97 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		C69A3B9B2C101D7900833E97 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		C69A3B9E2C10201A00833E97 /* LoginFormError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormError.swift; sourceTree = "<group>"; };
+		C69A3BA12C10214600833E97 /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,11 +67,14 @@
 		C69A3B7B2C0F470000833E97 /* MVPattern */ = {
 			isa = PBXGroup;
 			children = (
+				C69A3BA02C10213200833E97 /* CustomErrors */,
+				C69A3B9D2C101FFF00833E97 /* FormErrors */,
 				C69A3B922C0F4D0B00833E97 /* Extensions */,
 				C69A3B8F2C0F488200833E97 /* Services */,
 				C69A3B8A2C0F47C700833E97 /* Models */,
 				C69A3B7C2C0F470000833E97 /* MVPatternApp.swift */,
 				C69A3B7E2C0F470000833E97 /* ContentView.swift */,
+				C69A3B992C101CCC00833E97 /* LoginView.swift */,
 				C69A3B802C0F470200833E97 /* Assets.xcassets */,
 				C69A3B822C0F470200833E97 /* Preview Content */,
 			);
@@ -99,8 +110,25 @@
 			isa = PBXGroup;
 			children = (
 				C69A3B932C0F4D1E00833E97 /* NumberFormatterExtensions.swift */,
+				C69A3B9B2C101D7900833E97 /* StringExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C69A3B9D2C101FFF00833E97 /* FormErrors */ = {
+			isa = PBXGroup;
+			children = (
+				C69A3B9E2C10201A00833E97 /* LoginFormError.swift */,
+			);
+			path = FormErrors;
+			sourceTree = "<group>";
+		};
+		C69A3BA02C10213200833E97 /* CustomErrors */ = {
+			isa = PBXGroup;
+			children = (
+				C69A3BA12C10214600833E97 /* LoginError.swift */,
+			);
+			path = CustomErrors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,7 +201,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C69A3B9C2C101D7900833E97 /* StringExtensions.swift in Sources */,
+				C69A3B9F2C10201A00833E97 /* LoginFormError.swift in Sources */,
+				C69A3BA22C10214600833E97 /* LoginError.swift in Sources */,
 				C69A3B7F2C0F470000833E97 /* ContentView.swift in Sources */,
+				C69A3B9A2C101CCC00833E97 /* LoginView.swift in Sources */,
 				C69A3B8E2C0F484D00833E97 /* StoreModel.swift in Sources */,
 				C69A3B7D2C0F470000833E97 /* MVPatternApp.swift in Sources */,
 				C69A3B942C0F4D1E00833E97 /* NumberFormatterExtensions.swift in Sources */,

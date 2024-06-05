@@ -19,4 +19,6 @@ class StoreModel: ObservableObject {
     func populateProducts() async throws {
         products = try await webService.getProducts()
     }
+    
+    
 }
