@@ -1,6 +1,6 @@
 //
 //  LoginView.swift
-//  MVPattern
+//  MVPatternValidation
 //
 //  Created by Thắng Đặng on 6/5/24.
 //
