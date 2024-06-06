@@ -10,11 +10,17 @@ import Foundation
 enum Endpoints {
     case allOrders
     case placeOrder
+    case deleteOrder(Int)
+    case updateOrder(Int)
     var path: String {
         switch self {
         case .allOrders:
             return "orders"
         case .placeOrder:
+            return "orders"
+        case .deleteOrder(let orderId):
+            return "orders/\(orderId)"
+        case .updateOrder(let orderId):
             return "orders"
         }
     }

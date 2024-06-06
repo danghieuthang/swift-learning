@@ -17,6 +17,23 @@ struct ContentView: View {
         }
     }
 
+    private func deleteOrder(_ indexSet: IndexSet) {
+        for index in indexSet {
+            let deleteOrder = model.orders[index]
+
+            guard let orderId = deleteOrder.id else {
+                return
+            }
+            Task {
+                do {
+                    try await model.deleteOrder(orderId)
+                } catch {
+                    print(error)
+                }
+            }
+        }
+    }
+
     @EnvironmentObject private var model: CoffeeModel
     var body: some View {
         NavigationStack {
@@ -24,11 +41,19 @@ struct ContentView: View {
                 if model.orders.isEmpty {
                     Text("No orders available!").accessibilityIdentifier("noOrdersText")
                 } else {
-                    List(model.orders) { order in
-                        OrderCellView(order: order)
+                    List {
+                        ForEach(model.orders) { order in
+                            NavigationLink(value: order.id) {
+                                OrderCellView(order: order)
+                            }
+                        }.onDelete(perform: deleteOrder)
                     }
                 }
-            }.task {
+            }
+            .navigationDestination(for: Int.self, destination: { orderId in
+                OrderDetailView(orderId: orderId)
+            })
+            .task {
                 await populateOrders()
             }
             .sheet(isPresented: $isPresented, content: {

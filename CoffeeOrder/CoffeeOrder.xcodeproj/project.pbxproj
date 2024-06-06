@@ -21,6 +21,7 @@
 		C6D0FCA42C1151F50025CB14 /* AddCoffeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D0FCA32C1151F50025CB14 /* AddCoffeeView.swift */; };
 		C6D0FCA62C11535B0025CB14 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D0FCA52C11535B0025CB14 /* View+Extensions.swift */; };
 		C6D0FCA82C1156420025CB14 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D0FCA72C1156420025CB14 /* String+Extensions.swift */; };
+		C6D0FCAA2C11F2FA0025CB14 /* OrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D0FCA92C11F2FA0025CB14 /* OrderDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		C6D0FCA32C1151F50025CB14 /* AddCoffeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCoffeeView.swift; sourceTree = "<group>"; };
 		C6D0FCA52C11535B0025CB14 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		C6D0FCA72C1156420025CB14 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		C6D0FCA92C11F2FA0025CB14 /* OrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 			children = (
 				C604505A2C1074C9006AAA64 /* OrderCellView.swift */,
 				C6D0FCA32C1151F50025CB14 /* AddCoffeeView.swift */,
+				C6D0FCA92C11F2FA0025CB14 /* OrderDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			files = (
 				C60450502C106C51006AAA64 /* WebService.swift in Sources */,
 				C6D0FCA82C1156420025CB14 /* String+Extensions.swift in Sources */,
+				C6D0FCAA2C11F2FA0025CB14 /* OrderDetailView.swift in Sources */,
 				C604505B2C1074C9006AAA64 /* OrderCellView.swift in Sources */,
 				C60450552C106E4E006AAA64 /* CoffeeModel.swift in Sources */,
 				C60450432C106C20006AAA64 /* ContentView.swift in Sources */,
