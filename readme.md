@@ -1,6 +1,22 @@
-This repository contains a collection of tutorials and notes from Mohammad Azam's course on Udemy that I have learned from and documented.
-# List And Navigation
-# State And Binding
+# SwiftUI Tutorials and Notes
+
+This repository contains a collection of tutorials and notes from Mohammad Azam's Udemy course on SwiftUI. The content has been learned and documented for future reference.
+
+
+## Table of Contents
+1. [List and Navigation](#list-and-navigation)
+2. [State and Binding](#state-and-binding)
+    - [State](#state)
+    - [Binding](#binding)
+    - [ObservedObject](#observedobject)
+    - [EnvironmentObject](#environmentobject)
+3. [MVVM Pattern](#mvvm-pattern)
+4. [MV Pattern](#mv-pattern)
+5. [MV Pattern Validation](#mv-pattern-validation)
+
+## Topics Covered
+### List And Navigation
+### State And Binding
 1. State: The @State property wrapper is used to create a mutable state for a value type. SwiftUI manages the storage of any property you declare as a state. When the state value changes, the view invalidates its appearance and recomputes the body.
 ```swift
 @State private var isToggled = false
@@ -58,31 +74,27 @@ struct ContentView: View {
 | `@ObservedObject` | When your view needs to mutate properties of an external object, and you want your view to update when those properties change. | A User object that is used across several views. |
 | `@EnvironmentObject` | When multiple views need to share and mutate the same data. | Settings that affect many views in your app, or a shared data model. |
 
-# Weather app
 
-# MVVM Pattern
-# MVVM(Model-View-View Model)
+### MVVM Pattern
 
-## Defination
+#### Defination
 - Model: Business object or domain object
 - View: Represents the UI for the application
 - View Model: Takes the data from the model and provides it to the view
 
-## MVVM in WPF vs SwiftUI
+#### MVVM in WPF vs SwiftUI
 
 - In SwiftUI, View is the ViewModel
 
 
-## Limitations of the MVVM in SwiftUI
+#### Limitations of the MVVM in SwiftUI
 
 1. **Complexity**: MVVM can add unnecessary complexity if your app's requirements are simple. For small apps with only a few screens, using MVVM might be overkill.
 2. **Tight Coupling**: In MVVM, the ViewModel is often tightly coupled with the View. This can make it difficult to reuse ViewModels across different views.
 3. **State Management**: Managing state can become complex in large applications. SwiftUI's @State and @Binding are great for simple state, but for complex state, you might need to use @ObservedObject or @EnvironmentObject, which can add complexity.
 4. **Testing**: While MVVM improves testability compared to MVC, testing the interaction between the View and the ViewModel can still be challenging.
 
-
-
-# MV Pattern
+### MV Pattern
 ![MV Pattern](assets/mv-pattern.jpeg)
 - MV Pattern: Where M stands for Model and V is for View
 - MV Pattern Mechanics: The MV pattern involves a user action mutating the state, causing the view to re-render, simplifying the data flow in SwiftUI applications.
@@ -112,7 +124,7 @@ class StoreModel: ObservableObject {
 
 More about [MV Pattern](https://azamsharp.com/2022/08/09/intro-to-mv-state-pattern.html)
 
-# Stop using MVVM with SwiftUI
+### Stop using MVVM with SwiftUI
 - SwiftUI already has features like state and binding that eliminates the need for a separate view model layer.
 - Using MVVM with SwiftUI requires passing around view models and global state which can be cumbersome and error-prone.
 - SwiftUI encourages a unidirectional data flow which can be achieved without MVVM using environment objects.
@@ -121,9 +133,9 @@ More about [MV Pattern](https://azamsharp.com/2022/08/09/intro-to-mv-state-patte
 
 [Read more](https://www.youtube.com/watch?v=LVx93PfGjdo)
 
-# MV Pattern - Validation
+### MV Pattern Validation
 
-## Simple
+#### Simple
 ```swift
 ```
 ## Form Validation with Error Messages and Error Forms
@@ -192,7 +204,7 @@ struct LoginFormError {
  }
 
 ```
-## Form Validation with View Model
+#### Form Validation with View Model
 - Login Error
 ```swift
 enum LoginError: Error, LocalizedError {
@@ -266,7 +278,7 @@ struct LoginView: View {
 
 ```
 
-## Form Validation with Summary Messages
+#### Form Validation with Summary Messages
 ```swift
 extension LocalizedError {
     var id: Int {
