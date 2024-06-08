@@ -11,6 +11,17 @@ struct OrderDetailView: View {
     let orderId: Int
     @EnvironmentObject private var model: CoffeeModel
     @State private var isPresented: Bool = false
+    @Environment(\.dismiss) private var dismiss
+
+    private func deleteOrder() async {
+        do {
+            try await model.deleteOrder(orderId)
+        } catch {
+            print(error)
+        }
+        dismiss()
+    }
+
     var body: some View {
         VStack {
             if let order = model.orderById(orderId) {
@@ -24,14 +35,18 @@ struct OrderDetailView: View {
                     Text(order.total as NSNumber, formatter: NumberFormatter.currency)
                     HStack {
                         Spacer()
-                        Button("Delete Order", role: .destructive) {}
+                        Button("Delete Order", role: .destructive) {
+                            Task {
+                                await deleteOrder()
+                            }
+                        }
                         Button("Edit Order") {
                             isPresented = true
                         }
                         Spacer()
                     }
                 }.sheet(isPresented: $isPresented, content: {
-                    AddCoffeeView()
+                    AddCoffeeView(order: order)
                 })
             }
             Spacer()
