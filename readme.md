@@ -13,7 +13,7 @@ This repository contains a collection of tutorials and notes from Mohammad Azam'
 3. [MVVM Pattern](#mvvm-pattern)
 4. [MV Pattern](#mv-pattern)
 5. [MV Pattern Validation](#mv-pattern-validation)
-
+6. [Core Data](#core-data)
 ## Topics Covered
 ### List And Navigation
 ### State And Binding
@@ -359,6 +359,31 @@ struct ValidationSummaryView: View {
         ForEach(errors, id: \.id) { error in
             Text(error.localizedDescription)
         }
+    }
+}
+
+```
+
+### Core Data
+#### Core Data Manager
+Core Data manager will be reponsible for setting up the core data stack
+```swift
+class CoreDataManager {
+    static let share = CoreDataManager()
+    private var persistentContainer : NSPersistentContainer
+    /// Make it private so nobody else can be initialize
+    private init() {
+        persistentContainer = NSPersistentContainer(name: "BudgetModel")
+        persistentContainer.loadPersistentStores{ description, error in
+            if let error{
+                fatalError("Unable to initialize Core data stack \(error)")
+            }
+        }
+    
+    }
+    /// Property return the NS ManagedObjectContext, which can access from the persistent container
+    var viewContext: NSManagedObjectContext{
+        persistentContainer.viewContext
     }
 }
 
