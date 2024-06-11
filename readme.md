@@ -365,6 +365,8 @@ struct ValidationSummaryView: View {
 ```
 
 ### Core Data
+Core Data is a framework provided by Apple for managing and persisting your app's data. It's essentially an object graph (and persistence) system that allows you to model your data in terms of objects, with relationships and inheritance. It can save these objects to disk, and fetch them when needed.
+![Core Data Stack](/assets/CoreDataStack.png)
 #### Core Data Manager
 Core Data manager will be reponsible for setting up the core data stack
 ```swift
@@ -388,3 +390,6 @@ class CoreDataManager {
 }
 
 ```
+
+Link learning
+()[https://fxstudio.dev/basic-ios-tutorial-core-data]
