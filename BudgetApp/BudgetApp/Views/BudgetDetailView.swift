@@ -34,6 +34,15 @@ struct BudgetDetailView: View {
         }
     }
 
+    private func deleteTransaction(_ transaction: Transaction) {
+        viewContext.delete(transaction)
+        do {
+            try viewContext.save()
+        } catch {
+            print(error)
+        }
+    }
+
     var body: some View {
         VStack {
             HStack {
@@ -57,15 +66,15 @@ struct BudgetDetailView: View {
                     Spacer()
                     Button("Save Transaction") {
                         saveTransaction()
-                    }
-                    .disabled(!isFormValid)
+                    }.disabled(!isFormValid)
+                        .buttonStyle(.bordered)
                     Spacer()
                 }
             }
             // Dispolay summarty of the budget category
             BudgetSummaryView(budgetCategory: budgetCategory)
             // Dipslay transaction
-            TransactionListView(request: BudgetCategory.transactionsByCategoryResquest(budgetCategory))
+            TransactionListView(request: BudgetCategory.transactionsByCategoryResquest(budgetCategory), onDeleteTransaction: deleteTransaction)
             Spacer()
         }.padding()
     }
