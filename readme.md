@@ -14,6 +14,7 @@ This repository contains a collection of tutorials and notes from Mohammad Azam'
 4. [MV Pattern](#mv-pattern)
 5. [MV Pattern Validation](#mv-pattern-validation)
 6. [Core Data](#core-data)
+7. [Combine framework](#combine-framework)
 ## Topics Covered
 ### List And Navigation
 ### State And Binding
@@ -371,7 +372,9 @@ Core Data is a framework provided by Apple for managing and persisting your app'
 Core Data manager will be reponsible for setting up the core data stack
 ```swift
 class CoreDataManager {
+    /// Implemented as a singleton
     static let share = CoreDataManager()
+    /// Encapsulates the core data stacks
     private var persistentContainer : NSPersistentContainer
     /// Make it private so nobody else can be initialize
     private init() {
@@ -390,6 +393,32 @@ class CoreDataManager {
 }
 
 ```
+#### Example code: [Budget App](./BudgetApp/)
 
-Link learning
-()[https://fxstudio.dev/basic-ios-tutorial-core-data]
+[Some references](https://fxstudio.dev/basic-ios-tutorial-core-data)
+### Combine Framework
+#### Key Concepts
+- Observable: An entity that produces data events. Example: User input, sensor data, API Responses
+- Observer: An entity that listens to events emmited by observables. Example: Application components, views
+- Operators: Functions to transform and manipulate data. Example: map, filter,...
+#### Benefits
+- Improved code readability
+- Handling complex asynchronous scenarios
+- Real-time and event-driven applications
+#### User cases
+- Web, mobile applications
+- Real-time dashboards
+- IoT and sensor data processing
+#### Reactive vs Imperative
+
+![Immutable vs mutable](./assets/Immutable%20vs%20mutable.png)
+![Control flow](./assets/declarative%20vs%20explitcit.png)
+![Control flow](./assets/synchronous%20vs%20asynchronous.png)
+
+
+|   | Reactive Programming | Imperative Programming |
+|---|----------------------|------------------------|
+| Definition | Reactive programming is a declarative programming paradigm concerned with data streams and the propagation of change. | Imperative programming is a programming paradigm that uses statements that change a program's state. |
+| Examples | In JavaScript, RxJS is a library for reactive programming. | In JavaScript, traditional event handling and callbacks are examples of imperative programming. |
+| Advantages | Reactive programming can simplify the handling of asynchronous operations and events. It's easier to express complex control flows. | Imperative programming can be more straightforward and easier to understand, especially for simple tasks. It's often more flexible. |
+| Disadvantages | Reactive programming can have a steep learning curve and may result in complex code for simple tasks. | Imperative programming can lead to more complex and less readable code when dealing with asynchronous operations and events. |
