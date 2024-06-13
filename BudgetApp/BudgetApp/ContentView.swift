@@ -23,7 +23,8 @@ enum SheetAction: Identifiable {
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(sortDescriptors: []) private var budgetCategoryResults: FetchedResults<BudgetCategory>
+//    @FetchRequest(sortDescriptors: []) private var budgetCategoryResults: FetchedResults<BudgetCategory>
+    @FetchRequest(fetchRequest: BudgetCategory.all) var budgetCategoryResults
     @State private var isPresented: Bool = false
     @State private var sheetAction: SheetAction? = nil
     var total: Double {
@@ -50,8 +51,12 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Text(total as NSNumber, formatter: NumberFormatter.currency)
-                    .fontWeight(/*@START_MENU_TOKEN@*/ .bold/*@END_MENU_TOKEN@*/)
+                HStack {
+                    Text("Total Budget -")
+                    Text(total as NSNumber, formatter: NumberFormatter.currency)
+                }
+
+                .fontWeight(/*@START_MENU_TOKEN@*/ .bold/*@END_MENU_TOKEN@*/)
                 BudgetListView(budgetCategoryResults: budgetCategoryResults,
                                onDeleteBudgetCategory: deleteBudget,
                                onEditBudgetCategory: editBudget)

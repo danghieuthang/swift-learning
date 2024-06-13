@@ -30,37 +30,22 @@ struct AddBudgetCategoryView: View {
         return messages.count == 0
     }
 
-    private func save() {
-        let budgetCategory = BudgetCategory(context: viewContext)
-        budgetCategory.title = title
-        budgetCategory.total = total
+    private func saveOrUpdate() {
+        if let budgetCategory {
+            let budget = BudgetCategory.byId(budgetCategory.objectID)
+            budget.title = title
+            budget.total = total
+        } else {
+            let budgetCategory = BudgetCategory(context: viewContext)
+            budgetCategory.title = title
+            budgetCategory.total = total
+        }
+
         do {
             try viewContext.save()
             dismiss()
         } catch {
             print(error.localizedDescription)
-        }
-    }
-
-    private func update() {
-        if let budgetCategory {
-            do {
-                let budget = BudgetCategory.byId(budgetCategory.objectID)
-                budget.title = title
-                budget.total = total
-                try viewContext.save()
-                dismiss()
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-    }
-
-    private func saveOrUpdate() {
-        if let budgetCategory {
-            update()
-        } else {
-            save()
         }
     }
 

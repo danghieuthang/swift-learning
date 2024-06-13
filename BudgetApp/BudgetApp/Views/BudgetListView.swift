@@ -26,10 +26,11 @@ struct BudgetListView: View {
                                     .fontWeight(.bold)
                                     .foregroundColor(budgetCategory.overSpent ? .red : .green)
                             }
-                        }.contentShape(Rectangle())
-                            .onLongPressGesture {
-                                onEditBudgetCategory(budgetCategory)
-                            }
+                        }
+                        .contentShape(Rectangle())
+                        .onLongPressGesture {
+                            onEditBudgetCategory(budgetCategory)
+                        }
                     }
                 }.onDelete(perform: { indexSet in
                     indexSet.map {
@@ -39,8 +40,10 @@ struct BudgetListView: View {
             } else {
                 Text("No budget categories exist.")
             }
-        }.navigationDestination(for: BudgetCategory.self, destination: { budgetCategory in
+        }
+        .navigationDestination(for: BudgetCategory.self, destination: { budgetCategory in
             BudgetDetailView(budgetCategory: budgetCategory)
         })
+        .listStyle(.plain)
     }
 }

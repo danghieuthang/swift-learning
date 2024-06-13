@@ -29,6 +29,9 @@ struct BudgetDetailView: View {
 
             budgetCategory.addToTransactions(transaction)
             try viewContext.save()
+            
+            title = ""
+            total = ""
         } catch {
             print(error)
         }
@@ -70,11 +73,14 @@ struct BudgetDetailView: View {
                         .buttonStyle(.bordered)
                     Spacer()
                 }
+            }.frame(maxHeight: /*@START_MENU_TOKEN@*/ .infinity/*@END_MENU_TOKEN@*/)
+                .padding([.bottom], 20)
+            VStack {
+                BudgetSummaryView(budgetCategory: budgetCategory)
+                // Dispolay summarty of the budget category
+                // Dipslay transaction
+                TransactionListView(request: BudgetCategory.transactionsByCategoryResquest(budgetCategory), onDeleteTransaction: deleteTransaction)
             }
-            // Dispolay summarty of the budget category
-            BudgetSummaryView(budgetCategory: budgetCategory)
-            // Dipslay transaction
-            TransactionListView(request: BudgetCategory.transactionsByCategoryResquest(budgetCategory), onDeleteTransaction: deleteTransaction)
             Spacer()
         }.padding()
     }
