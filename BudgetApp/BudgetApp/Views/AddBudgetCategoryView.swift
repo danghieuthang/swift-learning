@@ -13,6 +13,12 @@ struct AddBudgetCategoryView: View {
     @State private var messages: [String] = []
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.dismiss) private var dismiss
+
+    private var budgetCategory: BudgetCategory?
+    init(budgetCategory: BudgetCategory? = nil) {
+        self.budgetCategory = budgetCategory
+    }
+
     var isFormValid: Bool {
         messages = []
         if title.isEmpty {
@@ -36,6 +42,28 @@ struct AddBudgetCategoryView: View {
         }
     }
 
+    private func update() {
+        if let budgetCategory {
+            do {
+                let budget = BudgetCategory.byId(budgetCategory.objectID)
+                budget.title = title
+                budget.total = total
+                try viewContext.save()
+                dismiss()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    private func saveOrUpdate() {
+        if let budgetCategory {
+            update()
+        } else {
+            save()
+        }
+    }
+
     var body: some View {
         NavigationStack {
             Form {
@@ -53,7 +81,14 @@ struct AddBudgetCategoryView: View {
                 ForEach(messages, id: \.self) { message in
                     Text(message)
                 }
-            }.toolbar {
+            }
+            .onAppear {
+                if let budgetCategory {
+                    title = budgetCategory.title ?? ""
+                    total = budgetCategory.total
+                }
+            }
+            .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") {
                         dismiss()
@@ -62,7 +97,7 @@ struct AddBudgetCategoryView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
                         if isFormValid {
-                            save()
+                            saveOrUpdate()
                         }
                     }
                 }
