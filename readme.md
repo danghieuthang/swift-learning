@@ -681,3 +681,107 @@ subject.send(13)
 subject.send(30)
 ```
 #### Networking Using Combine
+*Networking using combine*
+```swift
+import Combine
+import UIKit
+
+struct Post: Codable {
+    let userId: Int
+    let title: String
+    let body: String
+}
+
+func fetchPosts() -> AnyPublisher<[Post], Error> {
+    let url = URL(string: "https://jsonplaceholder.typicode.com/posts")!
+    return URLSession.shared.dataTaskPublisher(for: url)
+        .map(\.data)
+        .decode(type: [Post].self, decoder: JSONDecoder())
+        .receive(on: DispatchQueue.main)
+        .eraseToAnyPublisher()
+}
+
+var cancellables: Set<AnyCancellable> = []
+
+fetchPosts()
+    .sink { completion in
+        switch completion {
+        case .finished:
+            print("update ui")
+        case .failure(let error):
+            print(error)
+        }
+    } receiveValue: { posts in
+        print(posts)
+    }
+    .store(in: &cancellables)
+
+```
+- *Error Handling and retries*
+```swift
+enum NetworkError: Error {
+    case badServerResponse
+}
+
+func fetchPosts() -> AnyPublisher<[Post], Error> {
+    let url = URL(string: "https://jsonplaceholder.typicode.com/posts")!
+    return URLSession.shared.dataTaskPublisher(for: url)
+        .tryMap { data, response in
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                throw NetworkError.badServerResponse
+            }
+            return data
+        }
+        .decode(type: [Post].self, decoder: JSONDecoder())
+        .retry(3)
+        .receive(on: DispatchQueue.main)
+        .eraseToAnyPublisher()
+}
+```
+
+- *Combining Network Requests*
+```swift
+import Combine
+import UIKit
+
+struct Movie: Decodable {
+    let title: String
+    private enum CodingKeys: String, CodingKey {
+        case title = "Title"
+    }
+}
+
+struct MovieResponse: Decodable {
+    let Search: [Movie]
+}
+
+enum NetworkError: Error {
+    case badServerResponse
+}
+
+func fetchMovie(_ searchTerm: String) -> AnyPublisher<MovieResponse, Error> {
+    let url = URL(string: "https://www.omdapi.com/?s=\(searchTerm)&page=2&apiKey=564727fa")!
+    return URLSession.shared.dataTaskPublisher(for: url)
+        .tryMap { data, response in
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                throw NetworkError.badServerResponse
+            }
+            return data
+        }
+        .decode(type: MovieResponse.self, decoder: JSONDecoder())
+        .retry(3)
+        .receive(on: DispatchQueue.main)
+        .eraseToAnyPublisher()
+}
+
+var cancellables: Set<AnyCancellable> = []
+
+Publishers.CombineLatest(fetchMovie("Batman"), fetchMovie("Spiderman"))
+    .sink { _ in
+
+    } receiveValue: { value1, value2 in
+        print(value1.Search)
+        print(value2.Search)
+    }
+
+```

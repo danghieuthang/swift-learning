@@ -26,6 +26,8 @@
 		C6D56DCF2C1FECC100316DD5 /* filtering-operators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "filtering-operators.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C6D56DD02C1FEED500316DD5 /* combining-oprators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "combining-oprators.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C6D56DD12C1FF26F00316DD5 /* CustomSubject.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CustomSubject.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C6D56DD22C20258D00316DD5 /* networking.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = networking.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C6D56DD32C2029F400316DD5 /* combining-network-requests.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "combining-network-requests.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +44,6 @@
 		C6D56DAF2C1FD3F700316DD5 = {
 			isa = PBXGroup;
 			children = (
-				C6D56DD12C1FF26F00316DD5 /* CustomSubject.playground */,
 				C6D56DBA2C1FD3F700316DD5 /* CombineFramework */,
 				C6D56DB92C1FD3F700316DD5 /* Products */,
 			);
@@ -59,6 +60,8 @@
 		C6D56DBA2C1FD3F700316DD5 /* CombineFramework */ = {
 			isa = PBXGroup;
 			children = (
+				C6D56DD32C2029F400316DD5 /* combining-network-requests.playground */,
+				C6D56DD12C1FF26F00316DD5 /* CustomSubject.playground */,
 				C6D56DCC2C1FDD1F00316DD5 /* subcribing-to-publisher.playground */,
 				C6D56DBB2C1FD3F700316DD5 /* CombineFrameworkApp.swift */,
 				C6D56DBD2C1FD3F700316DD5 /* ContentView.swift */,
@@ -69,6 +72,7 @@
 				C6D56DCE2C1FEA0700316DD5 /* Operation-in-combine.playground */,
 				C6D56DCF2C1FECC100316DD5 /* filtering-operators.playground */,
 				C6D56DD02C1FEED500316DD5 /* combining-oprators.playground */,
+				C6D56DD22C20258D00316DD5 /* networking.playground */,
 			);
 			path = CombineFramework;
 			sourceTree = "<group>";
