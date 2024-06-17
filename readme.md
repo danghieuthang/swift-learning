@@ -422,3 +422,262 @@ class CoreDataManager {
 | Examples | In JavaScript, RxJS is a library for reactive programming. | In JavaScript, traditional event handling and callbacks are examples of imperative programming. |
 | Advantages | Reactive programming can simplify the handling of asynchronous operations and events. It's easier to express complex control flows. | Imperative programming can be more straightforward and easier to understand, especially for simple tasks. It's often more flexible. |
 | Disadvantages | Reactive programming can have a steep learning curve and may result in complex code for simple tasks. | Imperative programming can lead to more complex and less readable code when dealing with asynchronous operations and events. |
+
+#### Combine
+Combine is framework for handling asynchronous and even driven code in swift
+[Cheatsheat](https://www.haozhexu.me/article/2023/swiftcombine)
+1. Concepts
+- **Publisher**: Emmit events
+- **Subcriber**: Subcribe to receive the events
+- **Operators**: Function to transform and maniplate data(map, filter, merge)
+- **Subjects**: Special type of **Publiser** that is also **Subcribe**
+
+
+2. **Publishers**
+- Publishers in Combine emits values over time, objects that receive these values are subscribers - a subscriber subscribes to the output of a publisher
+- Publishers is an enum, representing a namespace for publisher types, e.g.
+- Publishers.Sequence is a publisher that publishes a given sequence of elements, e.g.
+```swift
+let publisher = ["cat", "dog", "monkey"].publisher
+```
+Data task publisher:
+```swift
+URLSession.shared.dataTaskPublisher(for: url)
+```
+Default notification center publisher:
+```swift
+NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotificaiton)
+```
+3. **Subscriber**
+- *sink*: Attaches a subscriber with closure-based behavior.
+```swift
+["apple", "orange", "banana"].publisher.sink(receiveCompletion: { completion in
+    print("completed: \(completion)")
+}, receiveValue: { value in
+    print("value received: \(value)")
+})
+```
+- *assign*: Assigns each element from a publisher to a property on an object.
+```swift
+var player = Player()
+["something nice"]
+    .publisher
+    .assign(to: \.introduction, on: player)
+```
+4. **Publisher Lifecycle**
+- a publisher will not emit any value until it has a subscriber
+sink and assign create subscribers that are always willing to receive values
+- subscriber-driven emission has a terminology called backpressure management
+- both sink and assign return an AnyCancellable, when it’s deallocated, the subscription associated with the object is destroyed
+- AnyCancellable has a store(in:) method, takes an inout parameter, can be used to append the AnyCancellable to a set
+- Combine comes with a number of operators that can be used to transform the values received from publisher, e.g.
+5. **Error Handling**
+```swift
+enum NumberError: Error {
+    case operatiionFailed
+}
+
+let numbersPublisher = [1, 2, 3, 4, 5].publisher
+
+let doubledPublisher = numbersPublisher
+    .tryMap { number in
+
+        if number == 4 {
+            throw NumberError.operatiionFailed
+        }
+        return number * 2
+    }.catch { error in
+        if let numberError = error as? NumberError {
+            print("Error occurred: \(numberError)")
+        }
+        return Just(0)
+    }
+
+let cancelable = doubledPublisher.sink { completion in
+    switch completion {
+    case .finished:
+        print("finished")
+    case .failure(let error):
+        print(error)
+    }
+} receiveValue: { value in
+    print(value)
+}
+
+```
+or
+```swift
+import Combine
+import UIKit
+
+enum NumberError: Error {
+    case operatiionFailed
+}
+
+let numbersPublisher = [1, 2, 3, 4, 5].publisher
+
+let doubledPublisher = numbersPublisher
+    .tryMap { number in
+        if number == 4 {
+            throw NumberError.operatiionFailed
+        }
+        return number * 2
+    }.mapError { _ in
+        NumberError.operatiionFailed
+    }
+
+let cancelable = doubledPublisher.sink { completion in
+    switch completion {
+    case .finished:
+        print("finished")
+    case .failure(let error):
+        print(error)
+    }
+} receiveValue: { value in
+    print(value)
+}
+
+```
+6. **Transformation operators**
+
+- Map
+```swift
+let numbersPublisher = (1 ... 5).publisher
+
+let squaredPublisher = numbersPublisher.map { $0 * $0 }
+
+let cancelale = squaredPublisher.sink { value in
+    print(value)
+}
+```
+- FlatMap
+```swift
+let namePublisher = ["John", "Mary", "Steven"].publisher
+
+let flattedNamePublisher = namePublisher.flatMap { name in
+    name.publisher
+}
+
+flattedNamePublisher
+    .sink { char in
+        print(char)
+    }
+
+```
+- Merge
+```swift
+let publisher1 = (1 ... 6).publisher
+let publisher2 = (6 ... 9).publisher
+
+let mergePublisher = Publishers.Merge(publisher1, publisher2)
+
+let cancellables = mergePublisher.sink { value in
+    print(value)
+}
+
+```
+7. **Filter Operators**
+- Filter: Republishes all elements that match a provided closure.
+```swift
+let numersPublisher = (1 ... 10).publisher
+
+let evenNumberPublisher = numersPublisher.filter { $0 % 2 == 0 }
+
+evenNumberPublisher.sink { value in
+    print(value)
+}
+```
+- CompactMap: This operator receives each output from the upstream publisher and transforms it by applying a function you specify. If the function returns a non-nil result, CompactMap republishes the unwrapped result. If the function returns nil, CompactMap ignores the output.
+- Debounce: 
+Built-in operator that limits publisher’s output by ignoring values that are rapidly followed by another value.
+- RemoveDuplicates: Publishes only elements that don’t match the previous element.
+- throttle: Publishes either the most-recent or first element published by the upstream publisher in the specified time interval.
+8. **Combining Operators**
+- Publishers.Zip
+A publisher created by applying the zip function to two upstream publishers.
+
+Use Publishers.Zip to combine the latest elements from two publishers and emit a tuple to the downstream. The returned publisher waits until both publishers have emitted an event, then delivers the oldest unconsumed event from each publisher together as a tuple to the subscriber.
+
+If either upstream publisher finishes successfully or fails with an error, so too does the zipped publisher.
+```swift
+
+let publisher1 = [1, 2, 3, 4].publisher
+let publisher2 = ["A", "B", "C"].publisher
+let publisher3 = ["MOT", "Hai", "BA"].publisher
+let zippedPublisher = Publishers.Zip3(publisher1, publisher2, publisher3)
+
+let cancelables = zippedPublisher.sink { value in
+    print("\(value.0),\(value.1),\(value.2)")
+}
+
+```
+
+- Publishers.Merge
+A publisher created by applying the merge function to two upstream publishers.
+
+Publishers.Merge emits a new value every time one of the publishers it merges emits a new value. Only a single value is emitted by interleaving all emiited values from the publishers that it merges.
+
+Apple provides various versions of Publishers.Merge up to Publishers.Merge8 and Publishers.MergeMany. All versions of Pubilshers.Merge require that the publishers being merged have the same Output and Failure types.
+- Publishers.CombineLatest
+Subscribes to an additional publisher and invokes a closure upon receiving output from either publisher.
+
+```swift
+let publisher1 = CurrentValueSubject<Int, Never>(1)
+let publisher2 = CurrentValueSubject<Int, Never>(2)
+
+let combinePublisher = publisher1.combineLatest(publisher2)
+
+let cancellables = combinePublisher.sink { value1, value2 in
+    print("value 1: \(value1), Value 2: \(value2)")
+}
+
+publisher1.send(4)
+publisher2.send(5)
+
+```
+
+- switchToLatest
+Republishes elements sent by the most recently received publishers. Every time a publisher receives a new ‘Publisher’ as output, the previous subscriptions from the stream will automatically be cancelled.
+
+8. **Subject**
+- *Custom Subject*
+```swift
+class EvenSubject<Failure: Error>: Subject {
+    typealias Output = Int
+    private let wrapped: PassthroughSubject<Int, Failure>
+    init(initialValue: Int) {
+        self.wrapped = PassthroughSubject()
+        let evenInitialValue = initialValue % 2 == 0 ? initialValue : 0
+        send(initialValue)
+    }
+
+    func send(_ value: Int) {
+        if value % 2 == 0 {
+            wrapped.send(value)
+        }
+    }
+
+    func send(subscription: any Subscription) {
+        wrapped.send(subscription: subscription)
+    }
+
+    func send(completion: Subscribers.Completion<Failure>) {
+        wrapped.send(completion: completion)
+    }
+
+    func receive<S>(subscriber: S) where S: Subscriber, Failure == S.Failure, Int == S.Input {
+        wrapped.receive(subscriber: subscriber)
+    }
+}
+
+let subject = EvenSubject<Never>(initialValue: 4)
+
+let cancellable = subject.sink { value in
+    print(value)
+}
+
+subject.send(3)
+subject.send(13)
+subject.send(30)
+```
+#### Networking Using Combine
