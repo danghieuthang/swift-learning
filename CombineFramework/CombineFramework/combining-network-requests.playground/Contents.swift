@@ -12,19 +12,10 @@ struct MovieResponse: Decodable {
     let Search: [Movie]
 }
 
-enum NetworkError: Error {
-    case badServerResponse
-}
-
 func fetchMovie(_ searchTerm: String) -> AnyPublisher<MovieResponse, Error> {
-    let url = URL(string: "https://www.omdapi.com/?s=\(searchTerm)&page=2&apiKey=564727fa")!
+    let url = URL(string: "https://www.omdbapi.com/?s=\(searchTerm)&page=2&apiKey=ce157249")!
     return URLSession.shared.dataTaskPublisher(for: url)
-        .tryMap { data, response in
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                throw NetworkError.badServerResponse
-            }
-            return data
-        }
+        .map(\.data)
         .decode(type: MovieResponse.self, decoder: JSONDecoder())
         .retry(3)
         .receive(on: DispatchQueue.main)
