@@ -28,6 +28,8 @@
 		C6D56DD12C1FF26F00316DD5 /* CustomSubject.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CustomSubject.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C6D56DD22C20258D00316DD5 /* networking.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = networking.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C6D56DD32C2029F400316DD5 /* combining-network-requests.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "combining-network-requests.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C6D56DF92C206F1A00316DD5 /* CustomOperators.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CustomOperators.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C6D56DFA2C2072B800316DD5 /* debugging.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = debugging.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,8 @@
 				C6D56DCF2C1FECC100316DD5 /* filtering-operators.playground */,
 				C6D56DD02C1FEED500316DD5 /* combining-oprators.playground */,
 				C6D56DD22C20258D00316DD5 /* networking.playground */,
+				C6D56DF92C206F1A00316DD5 /* CustomOperators.playground */,
+				C6D56DFA2C2072B800316DD5 /* debugging.playground */,
 			);
 			path = CombineFramework;
 			sourceTree = "<group>";

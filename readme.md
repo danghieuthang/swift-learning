@@ -778,5 +778,87 @@ Publishers.CombineLatest(fetchMovie("Batman"), fetchMovie("Spiderman"))
 
 ```
 
+
 #### Practical project
 [Movie App - SwiftUI](./MovieApp/)
+
+
+#### Custom Operators
+```swift
+extension Publisher where Output == Int {
+    func filterEvenNumbers() -> AnyPublisher<Int, Failure> {
+        return self.filter { $0 % 2 == 0 }
+            .eraseToAnyPublisher()
+    }
+
+    func filterNumberGreaterThan(_ value: Int) -> AnyPublisher<Int, Failure> {
+        return self.filter { $0 > value }
+            .eraseToAnyPublisher()
+    }
+}
+
+let publisher = (1 ... 10).publisher
+
+print("filterEvenNumbers")
+let cancellable = publisher.filterEvenNumbers()
+    .sink { value in
+        print(value)
+    }
+
+print("filterNumberGreaterThan")
+_ = publisher.filterNumberGreaterThan(5)
+    .sink { value in
+        print(value)
+    }
+
+```
+#### Combining Operators
+```swift
+extension Publisher {
+    func mapAndFilter<T>(_ transform: @escaping (Output) -> T, _ isIncluded: @escaping (T) -> Bool) -> AnyPublisher<T, Failure> {
+        return self
+            .map { transform($0) }
+            .filter { isIncluded($0) }
+            .eraseToAnyPublisher()
+    }
+}
+
+print("mapAndFilter")
+let publisher1 = (1 ... 10).publisher
+_ = publisher1
+    .mapAndFilter { value in
+        value * 2
+    } _: { value in
+        value % 2 == 0
+    }
+    .sink { value in
+        print(value)
+    }
+
+```
+#### Combine Debugging
+```swift
+let publisher = (1 ... 10).publisher
+
+_ = publisher
+    .handleEvents { _ in
+        print("Subcription received")
+    } receiveOutput: { value in
+        print("receoved ouput")
+        print(value)
+    } receiveCompletion: { _ in
+        print("receive completion")
+    } receiveCancel: {
+        print("received cancel")
+    } receiveRequest: { _ in
+        print("receive request")
+    }
+    .map { value in
+        value * 2
+    }
+    .sink { value in
+        print("sink")
+        print(value)
+    }
+
+```
