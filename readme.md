@@ -367,7 +367,13 @@ struct ValidationSummaryView: View {
 
 ### Core Data
 Core Data is a framework provided by Apple for managing and persisting your app's data. It's essentially an object graph (and persistence) system that allows you to model your data in terms of objects, with relationships and inheritance. It can save these objects to disk, and fetch them when needed.
+#### Core Data Stack
 ![Core Data Stack](/assets/CoreDataStack.png)
+#### Core Data Models
+- Define the structure of your app
+- Compised of entities, attributes, and relationships
+- Representa real word object and their properties
+- Foundation for storing and retrieving data persistently
 #### Core Data Manager
 Core Data manager will be reponsible for setting up the core data stack
 ```swift
@@ -393,7 +399,127 @@ class CoreDataManager {
 }
 
 ```
+#### Data Management
+```swift
+struct ContentView: View {
+    @Environment(\.managedObjectContext) private var context
+    @FetchRequest(sortDescriptors: []) private var todoItems: FetchedResults<TodoItem>
+
+    @State private var title: String = ""
+
+    private var isFormValid: Bool {
+        !title.isEmptyOrWhiteSpace
+    }
+
+    private func saveTodoItem() {
+        let dotoItem = TodoItem(context: context)
+        dotoItem.title = title
+        do {
+            try context.save()
+        } catch {
+            print(error)
+        }
+    }
+
+    private var pendingTaskItems: [TodoItem] {
+        todoItems.filter { !$0.isCompleted }
+    }
+
+    private var completedTaskItems: [TodoItem] {
+        todoItems.filter { $0.isCompleted }
+    }
+
+    private func updateTodoItem(_ todoItem: TodoItem) {
+        do {
+            try context.save()
+        } catch {
+            print(error)
+        }
+    }
+
+    private func deleteTodoItem(_ todoItem: TodoItem) {
+        context.delete(todoItem)
+        do {
+            try context.save()
+        } catch {
+            print(error)
+        }
+    }
+
+    var body: some View {
+        VStack {
+            TextField("Title", text: $title)
+                .textFieldStyle(.roundedBorder)
+                .onSubmit {
+                    if isFormValid {
+                        saveTodoItem()
+                    }
+                }
+            List {
+                Section("Pending") {
+                    if pendingTaskItems.isEmpty {
+                        ContentUnavailableView("No Items found.", image: "doc")
+                    } else {
+                        ForEach(pendingTaskItems) { todoItem in
+                            TodoCellView(todoItem: todoItem, onChanged: updateTodoItem)
+                        }.onDelete(perform: { indexSet in
+                            for index in indexSet {
+                                let todoItem = pendingTaskItems[index]
+                                deleteTodoItem(todoItem)
+                            }
+
+                        })
+                    }
+                }
+
+                Section("Completed") {
+                    ForEach(completedTaskItems) { todoItem in
+                        TodoCellView(todoItem: todoItem, onChanged: updateTodoItem)
+                    }
+                }
+            }
+            Spacer()
+        }
+        .padding()
+        .navigationTitle("Todo")
+    }
+}
+
+struct TodoCellView: View {
+    let todoItem: TodoItem
+    let onChanged: (TodoItem) -> Void
+    var body: some View {
+        HStack {
+            Image(systemName: todoItem.isCompleted ? "checkmark.square" : "square")
+                .onTapGesture {
+                    todoItem.isCompleted = !todoItem.isCompleted
+                    onChanged(todoItem)
+                }
+            if todoItem.isCompleted {
+                Text(todoItem.title ?? "")
+            } else {
+                TextField("", text: Binding(get: {
+                    todoItem.title ?? ""
+                }, set: { newValue in
+                    todoItem.title = newValue
+                })).onSubmit {
+                    onChanged(todoItem)
+                }
+            }
+        }
+    }
+}
+
+#Preview {
+    NavigationStack {
+        ContentView().environment(\.managedObjectContext, CoreDataProvider.preview.viewContext)
+    }
+}
+
+```
 #### Example code: [Budget App](./BudgetApp/)
+#### Migrations
+#### CloudKit
 
 [Some references](https://fxstudio.dev/basic-ios-tutorial-core-data)
 ### Combine Framework
